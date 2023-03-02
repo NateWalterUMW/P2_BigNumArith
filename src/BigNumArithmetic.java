@@ -1,4 +1,4 @@
-public class Main {
+public class BigNumArithmetic {
 	public int add(int num1, int num2) {
 		// TODO
 		return 0;

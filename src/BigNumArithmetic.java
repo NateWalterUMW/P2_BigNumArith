@@ -23,18 +23,21 @@ public class BigNumArithmetic {
 	}
 	public int add(LList num1, LList num2) {	// this function performs addition on 2 operands (stored as linked lists)
 		// TODO
+		
 		return 0;
 	}
 	
 	
 	public int multiply(LList num1, LList num2) {	// this function performs multiplication on 2 operands
 		// TODO
+		
 		return 0;
 	}
 	
 	
 	public int expon(LList num1, LList num2) {		// this function performs exponentiation on 2 operands
 		// TODO
+		
 		return 0;
 	}
 }

@@ -22,7 +22,6 @@ public class BigNumArithmetic {
 	public String add(LList num1, LList num2) {	// this function performs addition on 2 operands (stored as linked lists)
 		//create two link lists for storing values (setting empty)
 		LList biggest = null;
-		LList calculation = null;
 		//save the reverse total and a boolean for keeping track of the reverse operation
 		boolean reverse = true;
 		String reverseTotal = "";
@@ -42,7 +41,7 @@ public class BigNumArithmetic {
 		//should be carried due to addition
 		int carry = 0;
 		//new link list to store the results of the addition
-		LList additionResults = new LList();
+		LList additionResult = new LList();
 		//looping begins
 		for(int i = 0; i < biggest.length(); i++){
 			int ones = 0;
@@ -62,14 +61,14 @@ public class BigNumArithmetic {
 				total = ones + twos + carry;
 
 				if(num1.length() == 1 && num2.length() == 1){
-					additionResults.append(total);
+					additionResult.append(total);
 					reverse = false;
 					reverseTotal = String.valueOf(total);
 				}else if(total < 10){
-					additionResults.append(total);
+					additionResult.append(total);
 					carry = 0;
 				}else{
-					additionResults.append(total % 10);
+					additionResult.append(total % 10);
 					carry = 1;
 				}
 				//move to the next
@@ -80,14 +79,14 @@ public class BigNumArithmetic {
 
 		//this operation will add the carry value if it needed to be appended to the total
 		if(carry == 1){
-			additionResults.append(carry);
+			additionResult.append(carry);
 		}
 
 		//we then need a space to store the final result, so we create a value and loop through once more
 		String finalTotal = "";
-		for(int j = additionResults.length()-1; j >= 0; j--){
-			finalTotal = finalTotal + additionResults.getValue();
-			additionResults.next();
+		for(int j = additionResult.length()-1; j >= 0; j--){
+			finalTotal = finalTotal + additionResult.getValue();
+			additionResult.next();
 		}
 		//precautionary - if the string requires it to be reversed
 		if(reverse){
@@ -99,7 +98,6 @@ public class BigNumArithmetic {
 		}
 		return reverseTotal;
 	}
-	
 	
 	public int multiply(LList num1, LList num2) {	// this function performs multiplication on 2 operands
 		// TODO

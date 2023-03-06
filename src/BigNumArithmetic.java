@@ -99,10 +99,126 @@ public class BigNumArithmetic {
 		return reverseTotal;
 	}
 	
-	public int multiply(LList num1, LList num2) {	// this function performs multiplication on 2 operands
-		// TODO
-		
-		return 0;
+	public String multiply(LList num1, LList num2) {	// this function performs multiplication on 2 operands - the addition method is also used
+		//we start again similarly to addition, by creating variables that will keep track of varying characteristics
+		LList biggest = null;
+		LList smallest = null;
+		LList result = null;
+
+		//for reverse operations
+		String reversedResult = "";
+		LList previousR = new LList();
+		boolean reverse = true;
+
+		//first, we check to see which list is bigger so that it can be multiplied to the other
+		if(num1.length() >= num2.length()){
+			biggest = num1;
+			smallest = num2;
+		}else{
+			biggest = num2;
+			smallest = num1;
+		}
+		//move our pointer to the start of each by calling the moveToStart function
+		num1.moveToStart();
+		num2.moveToStart();
+
+		//now, we loop through the smallest number based on the above operation and multiply it by the digits of the other
+		//the loop continuously moves through the smallest number digit by digit while keeping a running total
+		//this loop takes into account additional 0's and ends by returning the product of multiplication operation after being reversed
+		//the final result is written out in the correct order
+
+		int carry = 0;
+		result = new LList();
+		for(int i = 0; i < smallest.length(); i++){
+			int ones = 0;
+			int twos = 0;
+			int product = 0;
+			String total = "";
+			if(smallest.getValue() != null){
+				String onesTotal = String.valueOf(smallest.getValue());
+				ones = Integer.parseInt(onesTotal);
+
+				if(i >=1 ){
+					for(int k = 0; k < i; k++){
+						result.append("0");
+					}
+				}
+				for(int m = 0; m < biggest.length(); m++){
+					String twosTotal = String.valueOf(biggest.getValue());
+					twos = Integer.parseInt(twosTotal);
+
+					if(smallest.length() == 1 && ones == 0){
+						reversedResult = "0";
+						return reversedResult;
+					}
+					product = (ones * twos) + carry;
+
+					if(smallest.length() == 1 && biggest.length() == 1){
+						result.append(product);
+						reversedResult = String.valueOf(product);
+						return reversedResult;
+					}
+					else if(product < 10){
+						result.append(product);
+						carry = 0;
+					}
+					else{
+						result.append(product % 10);
+						carry = (product / 10);
+					}
+					biggest.next();
+					//if we are at the end of the digit
+					if(biggest.isAtEnd() && carry > 0){
+						result.append(carry);
+						carry = 0;
+					}
+				}
+				if(smallest.length() == 1){
+					for(int e = result.length()-1; e >= 0; e--){
+						reversedResult = result.getValue() + reversedResult;
+						result.next();
+					}
+					return reversedResult;
+				}
+			}
+			//now, we will append each of the values to the correct lists and make sure that everything is in order
+			if( i == 0){
+
+				for(int b = 0; b < result.length(); b++){
+					result.next();
+				}
+				result.moveToStart();
+				for(int d = 0; d < result.length(); d++){
+					previousR.append(result.getValue());
+					result.next();
+				}
+				for(int b = 0; b < previousR.length(); b++){
+					previousR.next();
+				}
+				previousR.moveToStart();
+			}else if(i >= 1){
+				for(int b = 0; b < result.length(); b++){
+					result.next();
+				}
+				total = add(result,previousR);
+				reversedResult = total;
+
+				previousR.clear();
+				for(int a = total.length()-1; a >= 0; a--){
+					previousR.append(total.charAt(a));
+				}
+				previousR.moveToStart();
+				for(int t =0; t < previousR.length(); t++){
+					previousR.next();
+				}
+			}
+			//move pointers and clear necessary variables
+			smallest.next();
+			biggest.moveToStart();
+			result.clear();
+		}
+		return reversedResult;
+
 	}
 	
 	

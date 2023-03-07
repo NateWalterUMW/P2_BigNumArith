@@ -232,9 +232,18 @@ public class BigNumArithmetic {
 
 	}
 	
-	public int expon(LList num1, LList num2) {		// this function performs exponentiation on 2 operands
+	public static String expon(LList num1, LList num2) {		// this function performs exponentiation on 2 operands
 		// TODO
 		
-		return 0;
+		// if num1 or num2 is empty, return null
+		if (num1.isEmpty() || num2.isEmpty()) {
+			return null;
+		}
+		
+		String reversedResult = "";
+		
+		
+		
+		return reversedResult;
 	}
 }

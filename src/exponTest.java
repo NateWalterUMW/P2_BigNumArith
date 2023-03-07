@@ -1,14 +1,10 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-class exponTest {
+public class exponTest {
 
 	@Test
-	void validExponTest() {
-		// TODO
-	}
-	@Test
-	void invalidExponTest() {
+	public void validExponTest() {
 		// TODO
 	}
 }

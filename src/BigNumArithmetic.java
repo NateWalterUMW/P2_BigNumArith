@@ -10,8 +10,9 @@ public class BigNumArithmetic {
 			
 			Scanner scan = new Scanner(fileIn);		// create scanner to read from the file
 			
-			while (scan.hasNextLine()) {	// while the file has another line
+			while (scan.hasNextLine()) {	// while the file has another line, read in each expression
 				// TODO
+				
 			}
 		}
 		catch (FileNotFoundException e) {		// case if filename is not passed through the command line
@@ -19,13 +20,18 @@ public class BigNumArithmetic {
 		}
 	}
 
-	public String add(LList num1, LList num2) {	// this function performs addition on 2 operands (stored as linked lists)
+	public static String add(LList num1, LList num2) {	// this function performs addition on 2 operands (stored as linked lists)
 		//create two link lists for storing values (setting empty)
 		LList biggest = null;
 		//save the reverse total and a boolean for keeping track of the reverse operation
 		boolean reverse = true;
 		String reverseTotal = "";
 
+		// if num1 or num2 is empty, return null
+		if (num1.isEmpty() || num2.isEmpty()) {
+			return null;
+		}
+		
 		//first check to determine which of the linked lists is bigger, so that the smaller can be added to it
 		if(num1.length() > num2.length()){
 			biggest = num1;
@@ -99,7 +105,7 @@ public class BigNumArithmetic {
 		return reverseTotal;
 	}
 	
-	public String multiply(LList num1, LList num2) {	// this function performs multiplication on 2 operands - the addition method is also used
+	public static String multiply(LList num1, LList num2) {	// this function performs multiplication on 2 operands - the addition method is also used
 		//we start again similarly to addition, by creating variables that will keep track of varying characteristics
 		LList biggest = null;
 		LList smallest = null;
@@ -109,6 +115,11 @@ public class BigNumArithmetic {
 		String reversedResult = "";
 		LList previousR = new LList();
 		boolean reverse = true;
+		
+		// if num1 or num2 is empty, return null
+			if (num1.isEmpty() || num2.isEmpty()) {
+				return null;
+			}
 
 		//first, we check to see which list is bigger so that it can be multiplied to the other
 		if(num1.length() >= num2.length()){
@@ -220,7 +231,6 @@ public class BigNumArithmetic {
 		return reversedResult;
 
 	}
-	
 	
 	public int expon(LList num1, LList num2) {		// this function performs exponentiation on 2 operands
 		// TODO

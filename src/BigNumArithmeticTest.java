@@ -116,64 +116,64 @@ public class BigNumArithmeticTest {
 		num2.clear();
 	}
 
-//	@Test
-//	public final void exponTest() {
-//		LList num1 = new LList();
-//		LList num2 = new LList();
-//		
-//		// case: "8 ^"
-//		// this should return null --> tests when one number is empty
-//		num1.insert(8);
-//		assertEquals(null, BigNumArithmetic.expon(num1, num2));
-//		num1.clear();
-//		
-//		// case: "0 0 ^"
-//		// this should return "1"
-//		num1.insert(0);
-//		num2.insert(0);
-//		assertEquals("1", BigNumArithmetic.expon(num1, num2));
-//		num1.clear();
-//		num2.clear();
-//		
-//		// case: "0 324 ^"
-//		// this should return "0"
-//		num1.insert(0);
-//		num2.insert(3); num2.insert(2); num2.insert(4);
-//		assertEquals("1", BigNumArithmetic.expon(num1, num2));
-//		num1.clear();
-//		num2.clear();
-//		
-//		// case: "12 0 ^"
-//		// this should return 1
-//		num1.insert(1); num1.insert(2);
-//		num2.insert(0);
-//		assertEquals("1", BigNumArithmetic.expon(num1, num2));
-//		num1.clear();
-//		num2.clear();
-//		
-//		// case: "253 5 ^"
-//		// this should return "1036579476493"
-//		num1.insert(2); num1.insert(5); num1.insert(3);
-//		num2.insert(5);
-//		assertEquals("1036579476493", BigNumArithmetic.expon(num1, num2));
-//		num1.clear();
-//		num2.clear();
-//		
-//		// case: "61 3 ^"
-//		// this should return "226981"
-//		num1.insert(6); num1.insert(1);
-//		num2.insert(3);
-//		assertEquals("226981", BigNumArithmetic.expon(num1, num2));
-//		num1.clear();
-//		num2.clear();
-//		
-//		// case: "29 11 ^"
-//		// this should return "12200509765705829"
-//		num1.insert(2); num1.insert(9);
-//		num2.insert(1); num2.insert(1);
-//		assertEquals("12200509765705829", BigNumArithmetic.expon(num1, num2));
-//		num1.clear();
-//		num2.clear();
-//	}
+	@Test
+	public final void exponTest() {
+		LList num1 = new LList();
+		LList num2 = new LList();
+		
+		// case: "8 ^"
+		// this should return null --> tests when one number is empty
+		num1.insert(8);
+		assertEquals(null, BigNumArithmetic.expon(num1, num2));
+		num1.clear();
+		
+		// case: "0 0 ^"
+		// this should return "1"
+		num1.insert(0);
+		num2.insert(0);
+		assertEquals("1", BigNumArithmetic.expon(num1, num2));
+		num1.clear();
+		num2.clear();
+		
+		// case: "0 324 ^"
+		// this should return "0"
+		num1.insert(0);
+		num2.insert(3); num2.insert(2); num2.insert(4);
+		assertEquals("1", BigNumArithmetic.expon(num1, num2));
+		num1.clear();
+		num2.clear();
+		
+		// case: "12 0 ^"
+		// this should return 1
+		num1.insert(1); num1.insert(2);
+		num2.insert(0);
+		assertEquals("1", BigNumArithmetic.expon(num1, num2));
+		num1.clear();
+		num2.clear();
+		
+		// case: "253 5 ^"
+		// this should return "1036579476493"
+		num1.insert(2); num1.insert(5); num1.insert(3);
+		num2.insert(5);
+		assertEquals("1036579476493", BigNumArithmetic.expon(num1, num2));
+		num1.clear();
+		num2.clear();
+		
+		// case: "61 3 ^"
+		// this should return "226981"
+		num1.insert(6); num1.insert(1);
+		num2.insert(3);
+		assertEquals("226981", BigNumArithmetic.expon(num1, num2));
+		num1.clear();
+		num2.clear();
+		
+		// case: "29 11 ^"
+		// this should return "12200509765705829"
+		num1.insert(2); num1.insert(9);
+		num2.insert(1); num2.insert(1);
+		assertEquals("12200509765705829", BigNumArithmetic.expon(num1, num2));
+		num1.clear();
+		num2.clear();
+	}
 
 }

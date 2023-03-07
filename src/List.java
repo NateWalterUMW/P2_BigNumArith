@@ -12,13 +12,13 @@ public interface List { // List class ADT
   public boolean append(Object it);
 
   // Remove and return the current element
-  public Object remove();
+  //public Object remove();
 
   // Set the current position to the start of the list
   public void moveToStart();
 
   // Set the current position to the end of the list
-  public void moveToEnd();
+  //public void moveToEnd();
 
   // Move the current position one step left, no change if already at beginning
   public void prev();
@@ -30,10 +30,10 @@ public interface List { // List class ADT
   public int length();
 
   // Return the position of the current element
-  public int currPos();
+  //public int currPos();
 
   // Set the current position to "pos"
-  public boolean moveToPos(int pos);
+  //public boolean moveToPos(int pos);
 
   // Return true if current position is at end of the list
   public boolean isAtEnd();

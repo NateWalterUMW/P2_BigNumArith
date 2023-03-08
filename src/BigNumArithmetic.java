@@ -3,16 +3,31 @@ import java.util.Scanner;
 
 public class BigNumArithmetic {
 	public static void main(String[] args) {
+		File filename = null;
+		
+		if (args[0] != null) {
+			filename = new File(args[0]);
+		}
+
+		Scanner scan = null;
+		
 		try {
-			String fname = args[0];		// create new string to store the entered filename
-			File file = new File(fname);	// create new file, passing in filename as a string
-			FileInputStream fileIn = new FileInputStream(fname);	// create fileinputstream and pass in filename
-			
-			Scanner scan = new Scanner(fileIn);		// create scanner to read from the file
-			
+			FileInputStream fileIn = new FileInputStream(filename);	// create fileinputstream and pass in filename
+			scan = new Scanner(filename);		// create scanner to read from the file
 			while (scan.hasNextLine()) {	// while the file has another line, read in each expression
+				
 				// TODO
 				
+				String next = scan.next();	// scan next character
+				if (next == "1" || next == "2" || next == "3" || next == "4" || next == "5" || next == "6" || next == "7" || next == "8" || next == "9") {
+					while (next != " ") {	// while next char is not a space
+						LList number = new LList();		// create new LList to store the number
+						for (int i = 0; i < next.length(); i++) {	// for each char before a space
+							number.insert(next.charAt(i));		// insert into the LList
+						}
+					}
+				}
+				// TODO System.out.print(...\n);	// print the result for each line
 			}
 		}
 		catch (FileNotFoundException e) {		// case if filename is not passed through the command line
@@ -241,8 +256,6 @@ public class BigNumArithmetic {
 		}
 		
 		String reversedResult = "";
-		
-		
 		
 		return reversedResult;
 	}

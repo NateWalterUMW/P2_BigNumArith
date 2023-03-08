@@ -16,16 +16,18 @@ public class BigNumArithmetic {
 			scan = new Scanner(filename);		// create scanner to read from the file
 			while (scan.hasNextLine()) {	// while the file has another line, read in each expression
 				
-				// TODO
-				
 				String next = scan.next();	// scan next character
 				if (next == "1" || next == "2" || next == "3" || next == "4" || next == "5" || next == "6" || next == "7" || next == "8" || next == "9") {
+					
 					while (next != " ") {	// while next char is not a space
-						LList number = new LList();		// create new LList to store the number
-						for (int i = 0; i < next.length(); i++) {	// for each char before a space
-							number.insert(next.charAt(i));		// insert into the LList
-						}
+						LList num = new LList();		// create new LList to store the number
+						num.insert(next);
 					}
+				}
+				else if (next == "+" || next == "*" || next == "^"){
+					LStack op = new LStack();
+					
+					// push operator onto stack
 				}
 				// TODO System.out.print(...\n);	// print the result for each line
 			}

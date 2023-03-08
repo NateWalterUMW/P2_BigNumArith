@@ -17,14 +17,14 @@ public class BigNumArithmetic {
 			while (scan.hasNextLine()) {	// while the file has another line, read in each expression
 				
 				String next = scan.next();	// scan next character
-				if (next == "1" || next == "2" || next == "3" || next == "4" || next == "5" || next == "6" || next == "7" || next == "8" || next == "9") {
+				if (next.equals("1") || next.equals("2") || next.equals("3") || next.equals("4") || next.equals("5") || next.equals("6") || next.equals("7") || next.equals("8") || next.equals("9")) {
 					
-					while (next != " ") {	// while next char is not a space
+					while (next.equals(" ") == false) {	// while next char is not a space
 						LList num = new LList();		// create new LList to store the number
 						num.insert(next);
 					}
 				}
-				else if (next == "+" || next == "*" || next == "^"){
+				else if (next == "+" || next == "*" || next == "^") {
 					LStack op = new LStack();
 					
 					// push operator onto stack
@@ -50,9 +50,9 @@ public class BigNumArithmetic {
 		}
 		
 		//first check to determine which of the linked lists is bigger, so that the smaller can be added to it
-		if(num1.length() > num2.length()){
+		if (num1.length() > num2.length()) {
 			biggest = num1;
-		}else{
+		} else {
 			biggest = num2;
 		}
 
@@ -66,31 +66,31 @@ public class BigNumArithmetic {
 		//new link list to store the results of the addition
 		LList additionResult = new LList();
 		//looping begins
-		for(int i = 0; i < biggest.length(); i++){
+		for (int i = 0; i < biggest.length(); i++) {
 			int ones = 0;
 			int twos = 0;
 			int total = 0;
 
-			if( i < biggest.length()){
-				if( i < num1.length()){
+			if ( i < biggest.length()) {
+				if ( i < num1.length()) {
 					String value1 = String.valueOf(num1.getValue());
 					ones = Integer.parseInt(value1);
 				}
-				if( i < num2.length()){
+				if ( i < num2.length()) {
 					String value2 = String.valueOf(num2.getValue());
 					twos = Integer.parseInt(value2);
 				}
 				//sum of the operations above
 				total = ones + twos + carry;
 
-				if(num1.length() == 1 && num2.length() == 1){
+				if (num1.length() == 1 && num2.length() == 1) {
 					additionResult.append(total);
 					reverse = false;
 					reverseTotal = String.valueOf(total);
-				}else if(total < 10){
+				} else if (total < 10) {
 					additionResult.append(total);
 					carry = 0;
-				}else{
+				} else {
 					additionResult.append(total % 10);
 					carry = 1;
 				}
@@ -101,20 +101,20 @@ public class BigNumArithmetic {
 		}
 
 		//this operation will add the carry value if it needed to be appended to the total
-		if(carry == 1){
+		if (carry == 1){
 			additionResult.append(carry);
 		}
 
 		//we then need a space to store the final result, so we create a value and loop through once more
 		String finalTotal = "";
-		for(int j = additionResult.length()-1; j >= 0; j--){
+		for (int j = additionResult.length()-1; j >= 0; j--) {
 			finalTotal = finalTotal + additionResult.getValue();
 			additionResult.next();
 		}
 		//precautionary - if the string requires it to be reversed
-		if(reverse){
+		if (reverse){
 			char c;
-			for(int a = 0; a < finalTotal.length(); a++){
+			for (int a = 0; a < finalTotal.length(); a++) {
 				c = finalTotal.charAt(a);
 				reverseTotal = c + reverseTotal;
 			}
@@ -139,10 +139,10 @@ public class BigNumArithmetic {
 			}
 
 		//first, we check to see which list is bigger so that it can be multiplied to the other
-		if(num1.length() >= num2.length()){
+		if (num1.length() >= num2.length()) {
 			biggest = num1;
 			smallest = num2;
-		}else{
+		} else {
 			biggest = num2;
 			smallest = num1;
 		}
@@ -157,52 +157,52 @@ public class BigNumArithmetic {
 
 		int carry = 0;
 		result = new LList();
-		for(int i = 0; i < smallest.length(); i++){
+		for (int i = 0; i < smallest.length(); i++) {
 			int ones = 0;
 			int twos = 0;
 			int product = 0;
 			String total = "";
-			if(smallest.getValue() != null){
+			if (smallest.getValue() != null) {
 				String onesTotal = String.valueOf(smallest.getValue());
 				ones = Integer.parseInt(onesTotal);
 
-				if(i >=1 ){
-					for(int k = 0; k < i; k++){
+				if (i >=1 ) {
+					for (int k = 0; k < i; k++) {
 						result.append("0");
 					}
 				}
-				for(int m = 0; m < biggest.length(); m++){
+				for (int m = 0; m < biggest.length(); m++) {
 					String twosTotal = String.valueOf(biggest.getValue());
 					twos = Integer.parseInt(twosTotal);
 
-					if(smallest.length() == 1 && ones == 0){
+					if (smallest.length() == 1 && ones == 0) {
 						reversedResult = "0";
 						return reversedResult;
 					}
 					product = (ones * twos) + carry;
 
-					if(smallest.length() == 1 && biggest.length() == 1){
+					if (smallest.length() == 1 && biggest.length() == 1) {
 						result.append(product);
 						reversedResult = String.valueOf(product);
 						return reversedResult;
 					}
-					else if(product < 10){
+					else if (product < 10) {
 						result.append(product);
 						carry = 0;
 					}
-					else{
+					else {
 						result.append(product % 10);
 						carry = (product / 10);
 					}
 					biggest.next();
 					//if we are at the end of the digit
-					if(biggest.isAtEnd() && carry > 0){
+					if (biggest.isAtEnd() && carry > 0) {
 						result.append(carry);
 						carry = 0;
 					}
 				}
-				if(smallest.length() == 1){
-					for(int e = result.length()-1; e >= 0; e--){
+				if (smallest.length() == 1) {
+					for (int e = result.length()-1; e >= 0; e--) {
 						reversedResult = result.getValue() + reversedResult;
 						result.next();
 					}
@@ -210,33 +210,33 @@ public class BigNumArithmetic {
 				}
 			}
 			//now, we will append each of the values to the correct lists and make sure that everything is in order
-			if( i == 0){
+			if ( i == 0) {
 
-				for(int b = 0; b < result.length(); b++){
+				for (int b = 0; b < result.length(); b++) {
 					result.next();
 				}
 				result.moveToStart();
-				for(int d = 0; d < result.length(); d++){
+				for (int d = 0; d < result.length(); d++) {
 					previousR.append(result.getValue());
 					result.next();
 				}
-				for(int b = 0; b < previousR.length(); b++){
+				for (int b = 0; b < previousR.length(); b++) {
 					previousR.next();
 				}
 				previousR.moveToStart();
-			}else if(i >= 1){
-				for(int b = 0; b < result.length(); b++){
+			} else if(i >= 1) {
+				for (int b = 0; b < result.length(); b++) {
 					result.next();
 				}
 				total = add(result,previousR);
 				reversedResult = total;
 
 				previousR.clear();
-				for(int a = total.length()-1; a >= 0; a--){
+				for (int a = total.length()-1; a >= 0; a--) {
 					previousR.append(total.charAt(a));
 				}
 				previousR.moveToStart();
-				for(int t =0; t < previousR.length(); t++){
+				for (int t =0; t < previousR.length(); t++) {
 					previousR.next();
 				}
 			}

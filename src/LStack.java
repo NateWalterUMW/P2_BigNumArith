@@ -11,11 +11,11 @@ class LStack implements Stack {
   public void clear() { top = null; size = 0; }
 
 // Put "it" on stack
-//  public boolean push(String it) {  
-//    top = new String(it);
-//    size++;
-//    return true;
-//  }
+  public boolean push(String it) {  
+    top = new String(it);
+    size++;
+    return true;
+  }
 
 // Remove "it" from stack
 //  public String pop() {           
@@ -37,4 +37,3 @@ class LStack implements Stack {
   // Check if the stack is empty
   public boolean isEmpty() { return size == 0; }
 }
-

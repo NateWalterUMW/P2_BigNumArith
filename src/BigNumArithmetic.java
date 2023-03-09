@@ -8,26 +8,27 @@ public class BigNumArithmetic extends Operations {
 		if (args[0] != null) {
 			filename = new File(args[0]);
 		}
-
 		Scanner scan = null;
-		
 		try {
 			FileInputStream fileIn = new FileInputStream(filename);	// create fileinputstream and pass in filename
-			scan = new Scanner(filename);		// create scanner to read from the file
+			scan = new Scanner(fileIn);		// create scanner to read from the file
+			
 			while (scan.hasNextLine()) {	// while the file has another line, read in each expression
-				
+				LStack stack = new LStack();
 				String next = scan.next();	// scan next character
+				
+				// if next is a digit 1-9
 				if (next.equals("1") || next.equals("2") || next.equals("3") || next.equals("4") || next.equals("5") || next.equals("6") || next.equals("7") || next.equals("8") || next.equals("9")) {
+					LList num = new LList();
 					
-					while (next.equals(" ") == false) {	// while next char is not a space
-						LList num = new LList();		// create new LList to store the number
+					while (next.equals(" ") == false) {		// while next is not s space
 						num.insert(next);
 					}
-				}
-				else if (next == "+" || next == "*" || next == "^") {
-					LStack op = new LStack();
+					//stack.push(num);	// trying to push the llist onto the stack, but getting type mismatch errors
 					
-					// push operator onto stack
+					
+					
+					
 				}
 				// TODO System.out.print(...\n);	// print the result for each line
 			}

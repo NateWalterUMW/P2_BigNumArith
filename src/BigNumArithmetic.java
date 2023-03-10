@@ -52,6 +52,7 @@ public class BigNumArithmetic extends Operations {
 							//call pop twice for recent two numbers
 							String multi1 = stack.pop();
 							String multi2 = stack.pop();
+							// TODO - add the two results together using the function call
 
 							break;
 						//case for exponents
@@ -60,6 +61,8 @@ public class BigNumArithmetic extends Operations {
 							//calling pop and setting numbers
 							String expon1 = stack.pop();
 							String expon2 = stack.pop();
+							// TODO - add the two results together using the function call
+
 
 							break;
 					}

@@ -34,6 +34,7 @@ public class BigNumArithmetic extends Operations {
 					stack.push(next);		//push what is found at "next" onto the stack
 
 				}else{
+					Operations op = new Operations();	// make new operations object to call the operators
 					//switch statement for reading operators and calling function
 					switch (next){
 
@@ -44,7 +45,8 @@ public class BigNumArithmetic extends Operations {
 							String add1 = stack.pop();
 							String add2 = stack.pop();
 							// TODO - add the two results together using the function call
-
+							op.add(add1, add2);
+							
 							break;
 						//case for multiplication
 						case("*"):
@@ -53,7 +55,8 @@ public class BigNumArithmetic extends Operations {
 							String multi1 = stack.pop();
 							String multi2 = stack.pop();
 							// TODO - add the two results together using the function call
-
+							op.multiply(multi1, multi2);
+							
 							break;
 						//case for exponents
 						case("^"):
@@ -62,7 +65,7 @@ public class BigNumArithmetic extends Operations {
 							String expon1 = stack.pop();
 							String expon2 = stack.pop();
 							// TODO - add the two results together using the function call
-
+							op.expon(expon1, expon2);
 
 							break;
 					}

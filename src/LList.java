@@ -6,7 +6,7 @@ class LList implements List {
   private int listSize;      // Size of list
 
   // Constructors
-  LList(int size) { this(); }     // Constructor -- Ignore size
+  LList(Object it) { this(); }     // Constructor -- Ignore size
   LList() { clear(); }
 
   // Remove all elements

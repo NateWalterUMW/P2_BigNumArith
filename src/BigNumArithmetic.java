@@ -10,18 +10,26 @@ public class BigNumArithmetic extends Operations {
 		}
 		Scanner scan = null;
 		try {
-			FileInputStream fileIn = new FileInputStream(filename);	// create fileinputstream and pass in filename
+			FileInputStream fileIn = new FileInputStream(filename);	// create FileInputStream and pass in filename
 			scan = new Scanner(fileIn);		// create scanner to read from the file
 			
 			while (scan.hasNextLine()) {	// while the file has another line, read in each expression
 				LStack stack = new LStack();
 				String next = scan.next();	// scan next character
+
+				//formatting for extra lines and trailing zeros - move on to the next if equal to a zero or blank space
+				if(next.equals(" ")){
+					scan.next();
+				}else if(next.equals("0")){
+					scan.next();
+				}
+
 				
 				// if next is a digit 1-9
 				if (next.equals("1") || next.equals("2") || next.equals("3") || next.equals("4") || next.equals("5") || next.equals("6") || next.equals("7") || next.equals("8") || next.equals("9")) {
 					LList num = new LList();
 					
-					while (next.equals(" ") == false) {		// while next is not s space
+					while (next.equals(" ") == false) {		// while next is not a space
 						num.insert(next);
 					}
 					stack.push(next);		//push what is found at "next" onto the stack

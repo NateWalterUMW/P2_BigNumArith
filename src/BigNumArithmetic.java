@@ -35,11 +35,11 @@ public class BigNumArithmetic extends Operations {
 
 
 							break;
-
+						//case for multiplication
 						case("*"):
 
 							break;
-
+						//case for exponents
 						case("^"):
 
 							break;

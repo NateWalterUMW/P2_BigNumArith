@@ -32,15 +32,17 @@ public class BigNumArithmetic extends Operations {
 
 						//case for addition
 						case ("+"):
-
+							String additionResult;
 
 							break;
 						//case for multiplication
 						case("*"):
+							String multiplyResult;
 
 							break;
 						//case for exponents
 						case("^"):
+							String exponResult;
 
 							break;
 					}

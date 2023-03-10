@@ -211,16 +211,61 @@ public class Operations {
 		return reversedResult;
 	}
 	
-	public String expon(LList num1, LList num2) {		// this function performs exponentiation on 2 operands
-		// TODO
-		
+	public String expon(String num1, String num2) {		// this function performs exponentiation on 2 operands
 		// if num1 or num2 is empty, return null
 		if (num1.isEmpty() || num2.isEmpty()) {
 			return null;
 		}
-		
-		String reversedResult = "";
-		
-		return reversedResult;
+
+		//create integer for exponentiation
+		Integer x = Integer.parseInt(String.valueOf(num2));
+
+		//check the exponent
+		if(x == 0){
+			return "1";
+		}else if(x == 1){
+			return String.valueOf((num1));
+		}
+
+		//parity error check for exponent
+		else if(!(x % 2 == 0)){
+			LList a = new LList();
+			LList b = new LList();
+			for(int c = num1.length()-1; x >= 0; x--){
+				a.append(String.valueOf(num1).charAt(c));
+				b.append(String.valueOf(num1).charAt(c));
+			}
+
+			//String creation for exponent operations to be done
+			String expo = String.valueOf((x -1) / 2);
+			String multi = multiply(a,b);
+			String expo2 = expon(String.valueOf(multi), String.valueOf(expo));
+
+			LList expoAttempt = new LList();
+			//loop through
+			for(int d = expo2.length() -1; d >= 0; d--){
+				expoAttempt.append(expo2.charAt(d));
+			}
+			//return the conversion
+			return multiply(a,b);
+
+		}else{
+
+			LList a = new LList();
+			LList b = new LList();
+
+			//loop through again for appending
+			for(int d = num1.length() - 1; d >= 0; d--){
+				a.append(num1.charAt(d));
+				b.append(num1.charAt(d));
+			}
+
+			//Create strings for exponentiation to occur
+			String expo = String.valueOf(x / 2);
+			String multi = multiply(a,b);
+
+			//implement strings with exponentiation call
+			return expon(multi, expo);
+		}
 	}
 }

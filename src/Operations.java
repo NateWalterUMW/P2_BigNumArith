@@ -239,7 +239,7 @@ public class Operations {
 			//String creation for exponent operations to be done
 			String expo = String.valueOf((x -1) / 2);
 			String multi = multiply(a,b);
-			String expo2 = expon(String.valueOf(multi), String.valueOf(expo));
+			String expo2 = expon(multi, expo);
 
 			LList expoAttempt = new LList();
 			//loop through

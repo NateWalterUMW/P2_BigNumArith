@@ -24,12 +24,27 @@ public class BigNumArithmetic extends Operations {
 					while (next.equals(" ") == false) {		// while next is not s space
 						num.insert(next);
 					}
-					//stack.push(num);	// trying to push the llist onto the stack, but getting type mismatch errors
-					
-					
-					
-					
+					//stack.push(num);	// trying to push the LList onto the stack, but getting type mismatch errors
+
+				}else{
+					//switch statement for reading operators and calling function
+					switch (next){
+
+						//case for addition
+						case ("+"):
+
+							break;
+
+						case("*"):
+
+							break;
+
+						case("^"):
+
+							break;
+					}
 				}
+
 				// TODO System.out.print(...\n);	// print the result for each line
 			}
 		}

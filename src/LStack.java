@@ -17,19 +17,19 @@ class LStack implements Stack {
     return true;
   }
 
-// Remove "it" from stack
-//  public String pop() {           
-//    if (top == null) return null;
-//    String it = top;
-//    //top = top;
-//    size--;
-//    return it;
-//  }
+//Remove "it" from stack
+  public String pop() {
+    if (top == null) return null;
+    String it = top;
+    top = top;
+    size--;
+    return it;
+  }
 
-//  public String topValue() {      // Return top value
-//    if (top == null) return null;
-//    return top;
-//  }
+  public String topValue() {      // Return top value
+    if (top == null) return null;
+    return top;
+  }
 
   // Return stack length
   public int length() { return size; }

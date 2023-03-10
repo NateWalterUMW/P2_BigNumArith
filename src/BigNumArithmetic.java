@@ -24,7 +24,6 @@ public class BigNumArithmetic extends Operations {
 					scan.next();
 				}
 
-				
 				// if next is a digit 1-9
 				if (next.equals("1") || next.equals("2") || next.equals("3") || next.equals("4") || next.equals("5") || next.equals("6") || next.equals("7") || next.equals("8") || next.equals("9")) {
 					LList num = new LList();
@@ -41,16 +40,26 @@ public class BigNumArithmetic extends Operations {
 						//case for addition
 						case ("+"):
 							String additionResult;
+							//call pop twice to get the two recent numbers found
+							String add1 = stack.pop();
+							String add2 = stack.pop();
+							// TODO - add the two results together using the function call
 
 							break;
 						//case for multiplication
 						case("*"):
 							String multiplyResult;
+							//call pop twice for recent two numbers
+							String multi1 = stack.pop();
+							String multi2 = stack.pop();
 
 							break;
 						//case for exponents
 						case("^"):
 							String exponResult;
+							//calling pop and setting numbers
+							String expon1 = stack.pop();
+							String expon2 = stack.pop();
 
 							break;
 					}

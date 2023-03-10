@@ -24,7 +24,7 @@ public class BigNumArithmetic extends Operations {
 					while (next.equals(" ") == false) {		// while next is not s space
 						num.insert(next);
 					}
-					//stack.push(num);	// trying to push the LList onto the stack, but getting type mismatch errors
+					stack.push(next);		//push what is found at "next" onto the stack
 
 				}else{
 					//switch statement for reading operators and calling function

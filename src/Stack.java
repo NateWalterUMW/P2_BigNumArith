@@ -1,6 +1,6 @@
 public interface Stack { // Stack class ADT
   // Reinitialize the stack.
-  public void clear();
+  //public void clear();
 
   // Push "it" onto the top of the stack
   public boolean push(String it);
@@ -15,5 +15,5 @@ public interface Stack { // Stack class ADT
   public int length();
   
   // Return true if the stack is empty 
-  public boolean isEmpty();
+  //public boolean isEmpty();
 }

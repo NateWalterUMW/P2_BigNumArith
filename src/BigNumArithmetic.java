@@ -34,20 +34,21 @@ public class BigNumArithmetic extends Operations {
 					while (next.equals(" ") == false) {		// while next is not a space
 						num.insert(next);
 					}
-					stack.push(next);		//push what is found at "next" onto the stack
+					stack.push(next);		// push what is found at "next" onto the stack
+					System.out.print(next + " ");	// print the operand
 
 				} else {
 					Operations op = new Operations();	// make new operations object to call the operators
 					//switch statement for reading operators and calling function
 					switch (next) {
-
 						//case for addition
 						case ("+"):
+							System.out.print("+ ");	// print + operator
 							String additionResult;
 							//call pop twice to get the two recent numbers found
 							String add1 = stack.pop();
 							String add2 = stack.pop();
-							// TODO - add the two results together using the function call
+							// add the two results together using the function call
 							LList addLL1 = new LList();		// make llist to convert add1 from string to llist
 							for (int c = add1.length() - 1; c >= 0; c--) {	// start at the last digit and insert it, then move towards the front and insert each digit
 								addLL1.insert(add1.charAt(c));	// insert each char at char c into the llist
@@ -62,11 +63,12 @@ public class BigNumArithmetic extends Operations {
 							
 						//case for multiplication
 						case("*"):
+							System.out.print("* ");	// print * operator
 							String multiplyResult;
 							//call pop twice to get the two recent numbers found
 							String multi1 = stack.pop();
 							String multi2 = stack.pop();
-							// TODO - add the two results together using the function call
+							// add the two results together using the function call
 							LList multiLL1 = new LList();		// make llist to convert add1 from string to llist
 							for (int c = multi1.length() - 1; c >= 0; c--) {
 								multiLL1.insert(multi1.charAt(c));	// insert each char at char c into the llist
@@ -81,6 +83,7 @@ public class BigNumArithmetic extends Operations {
 							
 						//case for exponents
 						case("^"):
+							System.out.print("^ ");	// print ^ operator
 							String exponResult;
 							//calling pop and setting numbers
 							String expon1 = stack.pop();
@@ -91,8 +94,10 @@ public class BigNumArithmetic extends Operations {
 							break;
 					}
 				}
-
-				// TODO System.out.print(...\n);	// print the result for each line
+				if (stack.length() == 1) {	// if stack only has 1 element left
+					String finalResult = stack.pop();	// that element is the final result
+					System.out.print(finalResult + "\n");
+				}
 			}
 		}
 		catch (FileNotFoundException e) {		// case if the entered file does not exist

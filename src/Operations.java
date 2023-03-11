@@ -1,6 +1,19 @@
 public class Operations {
 	
 	public String add(LList num1, LList num2) {	// this function performs addition on 2 operands (stored as linked lists)
+		
+		
+//		LList num1 = new LList();
+//		LList num2 = new LList();
+		
+//		for (int i = num1Str.length()-1; i > 0; i--) {
+//			num1.append(String.valueOf(num1Str).charAt(i));
+//		}
+//		for (int j = num1Str.length()-1; j > 0; j--) {
+//			num2.append(String.valueOf(num2Str).charAt(j));
+//		}
+		
+		
 		//create two link lists for storing values (setting empty)
 		LList biggest = null;
 		//save the reverse total and a boolean for keeping track of the reverse operation
@@ -191,6 +204,17 @@ public class Operations {
 				for (int b = 0; b < result.length(); b++) {
 					result.next();
 				}
+//				//convert result from llist to string
+//				String resultStr = "";
+//				for (int c = 0; c <= result.length(); c++) {
+//					resultStr += c;
+//				}
+//				//convert previousR from llist to string
+//				String previousRstr = "";
+//				for (int c = 0; c <= previousRstr.length(); c++) {
+//					previousRstr += c;
+//				}
+				
 				total = add(result,previousR);
 				reversedResult = total;
 
@@ -221,17 +245,17 @@ public class Operations {
 		Integer x = Integer.parseInt(String.valueOf(num2));
 
 		//check the exponent
-		if(x == 0){
+		if (x == 0) {
 			return "1";
-		}else if(x == 1){
+		} else if (x == 1) {
 			return String.valueOf((num1));
 		}
 
 		//parity error check for exponent
-		else if(!(x % 2 == 0)){
+		else if (!(x % 2 == 0)) {
 			LList a = new LList();
 			LList b = new LList();
-			for(int c = num1.length()-1; x >= 0; x--){
+			for (int c = num1.length()-1; x >= 0; x--) {
 				a.append(String.valueOf(num1).charAt(c));
 				b.append(String.valueOf(num1).charAt(c));
 			}
@@ -243,19 +267,19 @@ public class Operations {
 
 			LList expoAttempt = new LList();
 			//loop through
-			for(int d = expo2.length() -1; d >= 0; d--){
+			for (int d = expo2.length() -1; d >= 0; d--) {
 				expoAttempt.append(expo2.charAt(d));
 			}
 			//return the conversion
 			return multiply(a,b);
 
-		}else{
+		} else {
 
 			LList a = new LList();
 			LList b = new LList();
 
 			//loop through again for appending
-			for(int d = num1.length() - 1; d >= 0; d--){
+			for (int d = num1.length() - 1; d >= 0; d--) {
 				a.append(num1.charAt(d));
 				b.append(num1.charAt(d));
 			}
